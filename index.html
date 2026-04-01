@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Abu Bakor Jihad | SEO & Digital Marketing Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#070B14;--bg2:#0D1220;--bg3:#111827;--accent:#00E5A0;--accent2:#0090FF;--accent3:#FF6B35;--text:#F0F4FF;--muted:#7A8499;--border:rgba(255,255,255,0.07);--card:rgba(255,255,255,0.04);--card-hover:rgba(255,255,255,0.08);--font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;--radius:16px;--radius-sm:8px}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.7;overflow-x:hidden;cursor:none}
+  a,button,input,textarea,select,[role="button"]{cursor:none}
+  ::selection{background:var(--accent);color:#000}
+
+  .cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s,opacity .3s;opacity:0;top:0;left:0}
+  .cursor-ring{width:36px;height:36px;border:1.5px solid rgba(0,229,160,0.5);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s,opacity .3s;opacity:0;top:0;left:0}
+  @media(hover:none){.cursor,.cursor-ring{display:none}}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,11,20,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:all .3s}
+  .logo{font-family:var(--font-head);font-weight:800;font-size:1.3rem;letter-spacing:-.02em;color:var(--text);text-decoration:none}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+  .nav-links a{color:var(--muted);font-size:.9rem;text-decoration:none;font-weight:500;letter-spacing:.02em;transition:color .2s;position:relative}
+  .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:100%;height:1.5px;background:var(--accent);transition:right .3s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-links a:hover::after{right:0}
+  .nav-cta{background:var(--accent);color:#000;border:none;padding:10px 22px;border-radius:50px;font-weight:600;font-size:.88rem;cursor:pointer;font-family:var(--font-body);transition:transform .2s,box-shadow .2s;text-decoration:none}
+  .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,229,160,.35)}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+  .hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;display:block}
+
+  .scroll-progress{position:fixed;top:70px;left:0;right:0;height:2px;z-index:999}
+  .scroll-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0%;transition:width .05s}
+  .back-top{position:fixed;bottom:30px;right:30px;width:46px;height:46px;border-radius:50%;background:var(--accent);color:#000;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:all .3s;z-index:100}
+  .back-top.show{opacity:1;transform:translateY(0)}
+  .back-top:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,229,160,.4)}
+
+  /* ============ HERO ============ */
+  #hero{min-height:100vh;padding:120px 5% 80px;display:flex;align-items:center;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto;width:100%}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,229,160,.1);border:1px solid rgba(0,229,160,.3);color:var(--accent);padding:6px 14px;border-radius:50px;font-size:.8rem;font-weight:500;margin-bottom:1.5rem;animation:fadeUp .6s ease forwards}
+  .badge-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+
+  /* — REDESIGNED NAME — */
+  .hero-name-block{margin-bottom:1.5rem;animation:fadeUp .7s .1s ease forwards;opacity:0}
+  .hero-greeting{font-size:1rem;font-weight:400;color:var(--muted);letter-spacing:.06em;margin-bottom:.4rem;display:flex;align-items:center;gap:12px}
+  .hero-greeting::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.12),transparent);max-width:100px}
+  .name-stack{display:flex;flex-direction:column;gap:2px}
+  .name-first{font-family:var(--font-head);font-size:clamp(3.2rem,6vw,6.5rem);font-weight:800;line-height:.9;letter-spacing:-.04em;color:var(--text);display:block;position:relative}
+  /* animated underline sweep */
+  .name-first::after{content:'';position:absolute;bottom:-6px;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;transform:scaleX(0);transform-origin:left;animation:sweepIn .9s .9s cubic-bezier(.23,1,.32,1) forwards}
+  @keyframes sweepIn{to{transform:scaleX(1)}}
+  .name-last-row{display:flex;align-items:center;gap:14px;margin-top:8px;flex-wrap:wrap}
+  .name-last{font-family:var(--font-head);font-size:clamp(3.2rem,6vw,6.5rem);font-weight:800;line-height:.9;letter-spacing:-.04em;background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 50%,#A78BFA 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;position:relative;text-shadow:none;filter:drop-shadow(0 0 20px rgba(0,229,160,.3))}
+  .name-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(0,229,160,.1);border:1px solid rgba(0,229,160,.3);border-radius:8px;padding:6px 12px;font-size:.7rem;font-weight:700;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;margin-bottom:12px}
+
+  .hero-sub{font-size:1.05rem;color:var(--muted);line-height:1.8;max-width:480px;margin-bottom:2.5rem;animation:fadeUp .7s .25s ease forwards;opacity:0}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp .7s .35s ease forwards;opacity:0}
+  .btn-primary{background:var(--accent);color:#000;padding:14px 32px;border-radius:50px;font-weight:600;font-size:.95rem;text-decoration:none;transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,229,160,.4)}
+  .btn-secondary{background:transparent;color:var(--text);padding:13px 32px;border-radius:50px;font-weight:500;font-size:.95rem;text-decoration:none;border:1.5px solid var(--border);transition:border-color .2s,background .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
+  .btn-secondary:hover{border-color:rgba(255,255,255,.3);background:var(--card-hover)}
+  .hero-stats{display:flex;gap:2rem;margin-top:2.5rem;flex-wrap:wrap;animation:fadeUp .7s .45s ease forwards;opacity:0}
+  .stat{text-align:center}
+  .stat-num{font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--text);line-height:1}
+  .stat-num .plus{color:var(--accent)}
+  .stat-label{font-size:.78rem;color:var(--muted);margin-top:4px;letter-spacing:.05em;text-transform:uppercase}
+  .stat-divider{width:1px;background:var(--border);align-self:stretch;margin:4px 0}
+
+  .hero-right{position:relative;animation:fadeIn 1s .3s ease forwards;opacity:0}
+  .hero-photo-frame{position:relative;width:100%;max-width:400px;margin:0 auto}
+  .photo-ring{width:100%;aspect-ratio:1;border-radius:40% 60% 60% 40%/40% 40% 60% 60%;background:linear-gradient(135deg,rgba(0,229,160,.15),rgba(0,144,255,.15));border:1.5px solid rgba(0,229,160,.2);display:flex;align-items:center;justify-content:center;animation:morph 8s ease-in-out infinite;overflow:hidden}
+  @keyframes morph{0%,100%{border-radius:40% 60% 60% 40%/40% 40% 60% 60%}50%{border-radius:60% 40% 40% 60%/60% 60% 40% 40%}}
+  .photo-placeholder{width:85%;height:85%;border-radius:inherit;background:linear-gradient(160deg,#1a2340,#0d1628);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;font-size:.85rem;color:var(--muted)}
+  .photo-placeholder svg{opacity:.3}
+  .floating-card{position:absolute;background:rgba(13,18,32,.96);border:1px solid var(--border);border-radius:10px;padding:12px 16px;backdrop-filter:blur(20px);font-size:.82rem}
+  .fc-1{top:10%;left:-12%;animation:float1 4s ease-in-out infinite}
+  .fc-2{bottom:15%;right:-10%;animation:float2 5s ease-in-out infinite}
+  .fc-3{top:55%;left:-15%;animation:float1 6s ease-in-out infinite}
+  @keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  @keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+  .fc-label{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+  .fc-val{font-weight:600;color:var(--text);margin-top:2px}
+  .fc-green{color:var(--accent)} .fc-blue{color:var(--accent2)}
+  .bg-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0}
+  .orb1{width:500px;height:500px;top:-100px;right:-100px;background:rgba(0,144,255,.07)}
+  .orb2{width:400px;height:400px;bottom:0;left:-100px;background:rgba(0,229,160,.06)}
+  .hero-content{position:relative;z-index:1}
+
+  /* MARQUEE */
+  .marquee-section{padding:20px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;background:rgba(255,255,255,.02)}
+  .marquee-track{display:flex;gap:3rem;animation:marquee 20s linear infinite;white-space:nowrap}
+  .marquee-track:hover{animation-play-state:paused}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .marquee-item{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.85rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;flex-shrink:0}
+  .marquee-dot{width:5px;height:5px;border-radius:50%;background:var(--accent)}
+
+  /* SHARED */
+  section{padding:100px 5%}
+  .section-inner{max-width:1200px;margin:0 auto}
+  .section-label{font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+  .section-label::before{content:'';display:block;width:30px;height:1.5px;background:var(--accent)}
+  .section-title{font-family:var(--font-head);font-size:clamp(2rem,3.5vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:1rem}
+  .section-sub{color:var(--muted);font-size:1rem;max-width:500px;line-height:1.8}
+
+  /* ============ SERVICES — BENTO ============ */
+  #services{background:var(--bg2)}
+  .services-header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem;margin-bottom:3.5rem}
+
+  .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+  .svc{position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--border);padding:34px;background:var(--card);transition:all .4s cubic-bezier(.23,1,.32,1);cursor:default}
+  .svc:hover{border-color:rgba(255,255,255,.13);transform:translateY(-5px)}
+  /* glow on hover */
+  .svc-glow{position:absolute;width:220px;height:220px;border-radius:50%;filter:blur(70px);opacity:0;transition:opacity .5s;pointer-events:none;top:50%;left:50%;transform:translate(-50%,-50%)}
+  .svc:hover .svc-glow{opacity:.1}
+  /* top accent line */
+  .svc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:20px 20px 0 0;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.23,1,.32,1)}
+  .svc:hover::before{transform:scaleX(1)}
+  /* watermark number */
+  .svc-num{position:absolute;top:14px;right:18px;font-family:var(--font-head);font-size:4.5rem;font-weight:800;line-height:1;color:rgba(255,255,255,.035);letter-spacing:-.04em;transition:color .4s}
+  .svc:hover .svc-num{color:rgba(255,255,255,.065)}
+  .svc-icon{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.4rem;transition:transform .35s}
+  .svc:hover .svc-icon{transform:scale(1.08) rotate(-5deg)}
+  .svc-icon svg{width:26px;height:26px}
+  .svc h3{font-family:var(--font-head);font-size:1.1rem;font-weight:700;margin-bottom:.6rem;color:var(--text)}
+  .svc p{color:var(--muted);font-size:.87rem;line-height:1.75}
+
+  /* Grid spans */
+  .svc-1{grid-column:span 5}
+  .svc-2{grid-column:span 7}
+  .svc-3,.svc-4,.svc-5{grid-column:span 4}
+  .svc-6{grid-column:span 12;display:flex;align-items:center;gap:40px;padding:30px 38px}
+  .svc-6-left{flex:1;min-width:0}
+  .svc-6-right{flex-shrink:0;display:flex;gap:14px}
+
+  /* Accent line colors */
+  .svc-1::before{background:linear-gradient(90deg,var(--accent),#00c87a)}
+  .svc-2::before{background:linear-gradient(90deg,var(--accent2),#0070cc)}
+  .svc-3::before{background:linear-gradient(90deg,#FF6B35,#d94e14)}
+  .svc-4::before{background:linear-gradient(90deg,#A78BFA,#7c55f5)}
+  .svc-5::before{background:linear-gradient(90deg,#FBBF24,#d49806)}
+  .svc-6::before{background:linear-gradient(90deg,#EC4899,#c02a6e)}
+
+  /* Icon bg helpers */
+  .ic-green{background:rgba(0,229,160,.11)} .svc:hover .ic-green{background:rgba(0,229,160,.2)}
+  .ic-blue{background:rgba(0,144,255,.11)} .svc:hover .ic-blue{background:rgba(0,144,255,.2)}
+  .ic-orange{background:rgba(255,107,53,.11)} .svc:hover .ic-orange{background:rgba(255,107,53,.2)}
+  .ic-purple{background:rgba(167,139,250,.11)} .svc:hover .ic-purple{background:rgba(167,139,250,.2)}
+  .ic-yellow{background:rgba(251,191,36,.11)} .svc:hover .ic-yellow{background:rgba(251,191,36,.2)}
+  .ic-pink{background:rgba(236,72,153,.11)} .svc:hover .ic-pink{background:rgba(236,72,153,.2)}
+
+  /* Stat pills */
+  .stat-pill{background:rgba(255,255,255,.055);border:1px solid var(--border);border-radius:12px;padding:14px 18px;text-align:center;min-width:106px;transition:border-color .3s}
+  .svc:hover .stat-pill{border-color:rgba(255,255,255,.12)}
+  .stat-pill-num{font-family:var(--font-head);font-size:1.55rem;font-weight:800;line-height:1}
+  .stat-pill-label{font-size:.7rem;color:var(--muted);margin-top:4px}
+  .svc-badge{display:inline-flex;align-items:center;gap:6px;border-radius:50px;padding:5px 14px;font-size:.73rem;font-weight:600;letter-spacing:.07em;margin-bottom:.75rem}
+
+  /* ============ ABOUT — REDESIGNED ============ */
+  #about{background:var(--bg)}
+  .about-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
+  .about-left .section-title{margin-bottom:1.2rem}
+  .about-left > p{color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1rem}
+
+  /* 3-stat row */
+  .about-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:2rem}
+  .about-num-box{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:20px 14px;text-align:center;transition:border-color .3s}
+  .about-num-box:hover{border-color:rgba(0,229,160,.3)}
+  .about-num-val{font-family:var(--font-head);font-size:1.9rem;font-weight:800;color:var(--accent);line-height:1}
+  .about-num-label{font-size:.73rem;color:var(--muted);margin-top:5px;line-height:1.4}
+
+  /* Expertise chips */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2rem}
+  .chip{display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:7px 15px;font-size:.81rem;font-weight:500;color:var(--muted);transition:all .25s;cursor:default}
+  .chip:hover{background:rgba(0,229,160,.08);border-color:rgba(0,229,160,.4);color:var(--accent)}
+  .chip-dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+  /* Right panel */
+  .about-panel{background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:34px;position:sticky;top:88px}
+  .panel-title{font-family:var(--font-head);font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:1.4rem;display:flex;align-items:center;gap:8px}
+  .panel-title-dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  .skill-bars{display:flex;flex-direction:column;gap:17px}
+  .skill-row label{display:flex;justify-content:space-between;font-size:.84rem;font-weight:500;margin-bottom:7px;color:var(--text)}
+  .skill-row label em{color:var(--accent);font-style:normal;font-weight:600}
+  .bar-bg{height:5px;background:rgba(255,255,255,.07);border-radius:50px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:50px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0%;transition:width 1.2s cubic-bezier(.23,1,.32,1);}
+  .bar-fill.go{width:var(--bar-w,100%)}
+  .panel-tools{margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+  .panel-tools-label{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+  .tool-badges{display:flex;flex-wrap:wrap;gap:7px}
+  .tool-badge{background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:6px;padding:5px 12px;font-size:.74rem;color:var(--muted);font-weight:500;transition:all .2s}
+  .tool-badge:hover{border-color:rgba(0,229,160,.4);color:var(--accent)}
+
+  /* ============ PROCESS ============ */
+  #process{background:var(--bg2)}
+  .process-header{text-align:center;margin-bottom:4rem}
+  .process-header .section-label{justify-content:center}
+  .process-header .section-label::before{display:none}
+  .process-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;position:relative}
+  .process-line{position:absolute;top:40px;left:10%;right:10%;height:1px;background:var(--border);z-index:0}
+  .process-step{text-align:center;padding:0 24px;position:relative;z-index:1}
+  .step-num{width:80px;height:80px;border-radius:50%;background:var(--bg3);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-family:var(--font-head);font-size:1.5rem;font-weight:800;color:var(--accent);transition:all .3s;position:relative}
+  .step-num::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px dashed rgba(0,229,160,.3);animation:spin 10s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .process-step:hover .step-num{background:rgba(0,229,160,.1);border-color:var(--accent);box-shadow:0 0 30px rgba(0,229,160,.2)}
+  .process-step h3{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:.5rem}
+  .process-step p{color:var(--muted);font-size:.85rem;line-height:1.7}
+
+  /* ============ RESULTS ============ */
+  #results{background:var(--bg)}
+  .results-header{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:4rem}
+  .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+  .result-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;position:relative;overflow:hidden;transition:all .35s cubic-bezier(.23,1,.32,1)}
+  .result-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--rc,var(--accent));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+  .result-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.15)}
+  .result-card:hover::after{transform:scaleX(1)}
+  .result-metric{font-family:var(--font-head);font-size:3rem;font-weight:800;line-height:1;margin-bottom:.5rem}
+  .result-card h4{font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:.5rem}
+  .result-card p{font-size:.82rem;color:var(--muted);line-height:1.7}
+
+  /* ============ WORKS ============ */
+  #works{background:var(--bg3)}
+  .works-header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem;margin-bottom:3.5rem}
+  .works-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+  .work-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all .35s cubic-bezier(.23,1,.32,1);position:relative;group:true}
+  .work-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.15);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+  .work-thumb{width:100%;height:200px;background:linear-gradient(135deg,var(--c1,rgba(0,229,160,.15)),var(--c2,rgba(0,144,255,.15)));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .work-thumb-icon{width:64px;height:64px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center}
+  .work-thumb::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,var(--c1,rgba(0,229,160,.2)),transparent 60%)}
+  .work-tag{position:absolute;top:14px;left:14px;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:4px 12px;font-size:.7rem;font-weight:600;color:var(--text);letter-spacing:.06em;text-transform:uppercase}
+  .work-body{padding:24px}
+  .work-body h3{font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.5rem}
+  .work-body p{font-size:.85rem;color:var(--muted);line-height:1.75;margin-bottom:1.2rem}
+  .work-metrics{display:flex;gap:16px;flex-wrap:wrap}
+  .work-metric{display:flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--accent)}
+  .work-metric span{color:var(--muted);font-weight:400}
+
+  /* ============ TOOLS ============ */
+  #tools{background:var(--bg2)}
+  .tools-header{text-align:center;margin-bottom:3rem}
+  .tools-header .section-label{justify-content:center}
+  .tools-header .section-label::before{display:none}
+  .tools-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+  .tool-pill{background:var(--card);border:1px solid var(--border);border-radius:50px;padding:10px 20px;font-size:.85rem;font-weight:500;color:var(--muted);transition:all .25s;cursor:default;display:flex;align-items:center;gap:8px}
+  .tool-pill:hover{background:rgba(0,229,160,.08);border-color:rgba(0,229,160,.4);color:var(--accent);transform:translateY(-3px)}
+  .tool-dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+
+  /* ============ TESTIMONIALS — INFINITE MARQUEE ============ */
+  #testimonials{background:var(--bg);overflow:hidden}
+  .testi-header{text-align:center;margin-bottom:2.5rem}
+  .testi-header .section-label{justify-content:center}
+  .testi-header .section-label::before{display:none}
+  .testi-outer{position:relative;margin:0 -5%;overflow:hidden}
+  .fade-l,.fade-r{position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+  .fade-l{left:0;background:linear-gradient(90deg,var(--bg) 0%,transparent 100%)}
+  .fade-r{right:0;background:linear-gradient(270deg,var(--bg) 0%,transparent 100%)}
+  .testi-track{display:flex;gap:20px;padding:16px 0 36px;width:max-content;animation:testiScroll 40s linear infinite}
+  .testi-track:hover{animation-play-state:paused}
+  @keyframes testiScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .testi-card{min-width:340px;max-width:340px;background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:30px;flex-shrink:0;transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
+  .testi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+  .testi-card:hover{border-color:rgba(255,255,255,.12);transform:translateY(-4px)}
+  .testi-card:hover::before{transform:scaleX(1)}
+  .testi-quote{font-size:3rem;line-height:1;color:var(--accent);opacity:.25;font-family:Georgia,serif;margin-bottom:.3rem}
+  .stars{display:flex;gap:4px;margin-bottom:1rem}
+  .star{width:14px;height:14px;color:#FBBF24}
+  .testi-text{font-size:.92rem;color:var(--muted);line-height:1.8;font-style:italic;margin-bottom:1.4rem}
+  .testi-author{display:flex;align-items:center;gap:12px}
+  .author-av{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:var(--text);font-family:var(--font-head);flex-shrink:0}
+  .author-name{font-weight:600;font-size:.88rem;color:var(--text)}
+  .author-role{font-size:.75rem;color:var(--muted);margin-top:2px}
+
+  /* ============ CTA ============ */
+  #cta{background:var(--bg2)}
+  .cta-inner{background:linear-gradient(135deg,rgba(0,229,160,.08),rgba(0,144,255,.08));border:1px solid rgba(0,229,160,.2);border-radius:24px;padding:80px 60px;text-align:center;position:relative;overflow:hidden}
+  .cta-inner::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,160,.1),transparent 70%);pointer-events:none}
+  .cta-inner .section-title{font-size:clamp(2rem,4vw,3.5rem);margin-bottom:1.2rem}
+  .cta-inner p{color:var(--muted);font-size:1.05rem;max-width:500px;margin:0 auto 2.5rem}
+  .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+  /* ============ CONTACT ============ */
+  #contact{background:var(--bg)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px}
+  .contact-info h2{font-family:var(--font-head);font-size:1.8rem;font-weight:800;margin-bottom:1rem}
+  .contact-info p{color:var(--muted);font-size:.95rem;line-height:1.8;margin-bottom:2rem}
+  .contact-links{display:flex;flex-direction:column;gap:12px}
+  .contact-link{display:flex;align-items:center;gap:14px;color:var(--muted);text-decoration:none;padding:14px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);transition:all .25s;font-size:.9rem}
+  .contact-link:hover{background:var(--card-hover);border-color:rgba(0,229,160,.3);color:var(--text);transform:translateX(4px)}
+  .link-icon{width:36px;height:36px;border-radius:8px;background:rgba(0,229,160,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .25s}
+  .contact-link:hover .link-icon{background:rgba(0,229,160,.2)}
+  .contact-form{display:flex;flex-direction:column;gap:16px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form-group{display:flex;flex-direction:column;gap:6px}
+  .form-group label{font-size:.82rem;font-weight:500;color:var(--muted);letter-spacing:.03em}
+  .form-group input,.form-group textarea,.form-group select{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 16px;color:var(--text);font-family:var(--font-body);font-size:.9rem;transition:border-color .25s,background .25s;outline:none;resize:none;appearance:none}
+  .form-group input:focus,.form-group textarea:focus{border-color:rgba(0,229,160,.5);background:rgba(0,229,160,.04)}
+  .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(122,132,153,.6)}
+  textarea{height:120px}
+  .form-submit{background:var(--accent);color:#000;border:none;padding:15px 40px;border-radius:50px;font-weight:700;font-size:.95rem;cursor:pointer;font-family:var(--font-body);transition:transform .2s,box-shadow .2s;align-self:flex-start}
+  .form-submit:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,229,160,.4)}
+  .form-submit:active{transform:scale(.97)}
+
+  /* FOOTER */
+  footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 5%}
+  .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+  .footer-logo{font-family:var(--font-head);font-weight:800;font-size:1.2rem}
+  .footer-logo span{color:var(--accent)}
+  footer p{color:var(--muted);font-size:.82rem}
+  .footer-links{display:flex;gap:2rem}
+  .footer-links a{color:var(--muted);font-size:.85rem;text-decoration:none;transition:color .2s}
+  .footer-links a:hover{color:var(--text)}
+  .social-links{display:flex;gap:12px}
+  .social-link{width:38px;height:38px;border-radius:50%;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;transition:all .25s}
+  .social-link:hover{background:rgba(0,229,160,.1);border-color:rgba(0,229,160,.4);color:var(--accent);transform:translateY(-3px)}
+
+  /* DESIGNER CREDIT */
+  .designer-credit{background:var(--bg);border-top:1px solid var(--border);padding:12px 5%;text-align:center}
+  .designer-credit-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+  .designer-credit-text{color:var(--muted);font-size:.78rem;letter-spacing:.04em}
+  .designer-credit-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--muted);font-size:.78rem;font-weight:500;transition:all .25s;padding:4px 10px;border-radius:50px;border:1px solid transparent;position:relative}
+  .designer-credit-link:hover{color:var(--accent);border-color:rgba(0,229,160,.3);background:rgba(0,229,160,.06)}
+  .designer-credit-logo{width:26px;height:26px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(0,229,160,.35);transition:border-color .25s,box-shadow .25s;flex-shrink:0}
+  .designer-credit-link:hover .designer-credit-logo{border-color:rgba(0,229,160,.8);box-shadow:0 0 10px rgba(0,229,160,.25)}
+  .credit-click-hint{font-size:.68rem;color:rgba(122,132,153,.5);letter-spacing:.05em;animation:hintPulse 2.5s ease-in-out infinite}
+  @keyframes hintPulse{0%,100%{opacity:.5}50%{opacity:1}}
+
+  /* ANIMATIONS */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  .reveal{opacity:1;transform:translateY(0);transition:opacity .8s ease,transform .8s ease}
+  .js-loaded .reveal{opacity:0;transform:translateY(40px)}
+  .js-loaded .reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal-delay-1{transition-delay:.1s}
+  .reveal-delay-2{transition-delay:.2s}
+  .reveal-delay-3{transition-delay:.3s}
+  .reveal-delay-4{transition-delay:.4s}
+
+  /* RESPONSIVE */
+  @media(max-width:1100px){
+    .bento{grid-template-columns:repeat(6,1fr)}
+    .svc-1{grid-column:span 3}.svc-2{grid-column:span 3}
+    .svc-3,.svc-4,.svc-5{grid-column:span 2}
+    .svc-6{grid-column:span 6;flex-direction:column;gap:20px}
+    .svc-6-right{justify-content:flex-start}
+  }
+  @media(max-width:900px){
+    nav{padding:0 4%}
+    .nav-links{display:none;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(7,11,20,.98);backdrop-filter:blur(20px);padding:2rem;gap:1.5rem;border-bottom:1px solid var(--border);z-index:999}
+    .nav-links.open{display:flex}
+    .nav-links a{font-size:1.1rem}
+    .hamburger{display:flex}
+    .nav-cta{display:none}
+    .hero-grid{grid-template-columns:1fr;gap:40px;text-align:center}
+    .hero-right{display:block;max-width:320px;margin:0 auto;order:-1}
+    .hero-content{order:1}
+    .hero-sub{max-width:100%;margin-left:auto;margin-right:auto}
+    .hero-btns{justify-content:center}
+    .hero-stats{justify-content:center}
+    .name-last-row{justify-content:center}
+    .hero-greeting{justify-content:center}
+    .hero-greeting::after{display:none}
+    .about-wrap{grid-template-columns:1fr;gap:40px}
+    .about-panel{position:static}
+    .about-nums{grid-template-columns:repeat(3,1fr)}
+    .contact-grid{grid-template-columns:1fr;gap:40px}
+    .form-row{grid-template-columns:1fr}
+    .cta-inner{padding:50px 30px}
+    section{padding:70px 5%}
+    .services-header{flex-direction:column;align-items:flex-start}
+    .results-header{flex-direction:column;align-items:flex-start}
+    .process-line{display:none}
+    .process-grid{grid-template-columns:1fr 1fr}
+    .footer-inner{flex-direction:column;text-align:center}
+    .footer-links{justify-content:center}
+    .bento{grid-template-columns:1fr}
+    .svc-1,.svc-2,.svc-3,.svc-4,.svc-5,.svc-6{grid-column:span 1}
+    .svc-6{flex-direction:column}
+    .testi-card{min-width:280px;max-width:280px}
+  }
+  @media(max-width:520px){
+    .name-first,.name-last{font-size:2.8rem}
+    .about-nums{grid-template-columns:1fr 1fr}
+    .process-grid{grid-template-columns:1fr}
+    .cta-inner{padding:40px 20px}
+    .hero-right{max-width:85vw}
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="scroll-progress"><div class="scroll-bar" id="scrollBar"></div></div>
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18,15 12,9 6,15"/></svg>
+</button>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="logo">ABJ<span>.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#works">My Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire Me →</a>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="bg-orb orb1"></div>
+  <div class="bg-orb orb2"></div>
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="badge-dot"></span>Available for New Projects</div>
+
+      <!-- REDESIGNED NAME BLOCK -->
+      <div class="hero-name-block">
+        <div class="hero-greeting">Hi, I'm</div>
+        <div class="name-stack">
+          <span class="name-first">Abu Bakor</span>
+          <div class="name-last-row">
+            <span class="name-last">Jihad</span>
+            <div class="name-tag">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              SEO &amp; Digital Marketing
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="hero-sub">SEO Expert &amp; Digital Marketing Strategist helping brands dominate search rankings, drive qualified traffic, and grow revenue through data-driven campaigns.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Let's Work Together <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#results" class="btn-secondary">View Results <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <a href="#" class="btn-secondary" download>Download CV <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num" id="s1">5<span class="plus">+</span></div><div class="stat-label">Years Exp.</div></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><div class="stat-num" id="s2">120<span class="plus">+</span></div><div class="stat-label">Clients</div></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><div class="stat-num" id="s3">98<span class="plus">%</span></div><div class="stat-label">Satisfaction</div></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><div class="stat-num">3x</div><div class="stat-label">Avg. Traffic Growth</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo-frame">
+        <div class="photo-ring">
+          <img src="https://i.postimg.cc/KcK9bD9L/image.png" alt="Md Abu Bakor Jihad" style="width:92%;height:92%;object-fit:cover;object-position:center top;border-radius:inherit;display:block;" onerror="this.style.display='none';this.parentNode.innerHTML+='<div style=\'display:flex;flex-direction:column;align-items:center;gap:10px;color:#7A8499;font-size:.85rem\'><svg width=60 height=60 viewBox=\'0 0 24 24\' fill=none stroke=currentColor stroke-width=1><circle cx=12 cy=8 r=4/><path d=\'M4 20c0-4 3.6-7 8-7s8 3 8 7\'/></svg>Abu Bakor Jihad</div>'">
+        </div>
+        <div class="floating-card fc-1"><div class="fc-label">Organic Traffic</div><div class="fc-val fc-green">↑ 340% Growth</div></div>
+        <div class="floating-card fc-2"><div class="fc-label">Rankings</div><div class="fc-val fc-blue">#1 on Google</div></div>
+        <div class="floating-card fc-3"><div class="fc-label">ROI Generated</div><div class="fc-val fc-green">$2.4M+</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot"></span>On-Page SEO</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Technical SEO</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Link Building</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Google Ads</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Social Media Marketing</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Content Strategy</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Conversion Optimisation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Analytics &amp; Reporting</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Email Marketing</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Local SEO</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>On-Page SEO</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Technical SEO</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Link Building</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Google Ads</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Social Media Marketing</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Content Strategy</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Conversion Optimisation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Analytics &amp; Reporting</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Email Marketing</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Local SEO</span>
+  </div>
+</div>
+
+<!-- SERVICES — BENTO GRID -->
+<section id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div>
+        <div class="section-label reveal">What I Offer</div>
+        <h2 class="section-title reveal reveal-delay-1">Services That<br><span style="color:var(--accent)">Drive Growth</span></h2>
+      </div>
+      <p class="section-sub reveal reveal-delay-2">From SEO to full-funnel digital marketing — everything you need to outrank competitors and scale your business.</p>
+    </div>
+
+    <div class="bento">
+
+      <!-- 1 SEO -->
+      <div class="svc svc-1 reveal">
+        <div class="svc-glow" style="background:var(--accent)"></div>
+        <div class="svc-num">01</div>
+        <div class="svc-icon ic-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M8.5 11h5M11 8.5v5"/></svg>
+        </div>
+        <h3>SEO Optimisation</h3>
+        <p>Comprehensive on-page, off-page and technical SEO that pushes your site to the top of Google — and keeps it there long-term.</p>
+      </div>
+
+      <!-- 2 Ads -->
+      <div class="svc svc-2 reveal reveal-delay-1">
+        <div class="svc-glow" style="background:var(--accent2)"></div>
+        <div class="svc-num">02</div>
+        <div class="svc-icon ic-blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><polyline points="7,9 10,12 14,9 17,12"/></svg>
+        </div>
+        <h3>Google &amp; Meta Ads</h3>
+        <p>Data-driven PPC campaigns with laser-targeted audience segmentation to maximise your ROI on every ad dollar spent.</p>
+        <div style="display:flex;gap:12px;margin-top:1.3rem">
+          <div class="stat-pill"><div class="stat-pill-num" style="color:var(--accent)">4.8x</div><div class="stat-pill-label">Avg. ROAS</div></div>
+          <div class="stat-pill"><div class="stat-pill-num" style="color:var(--accent2)">$2.4M</div><div class="stat-pill-label">Ad spend managed</div></div>
+        </div>
+      </div>
+
+      <!-- 3 Social -->
+      <div class="svc svc-3 reveal">
+        <div class="svc-glow" style="background:#FF6B35"></div>
+        <div class="svc-num">03</div>
+        <div class="svc-icon ic-orange">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Social Media Marketing</h3>
+        <p>Strategic campaigns that build brand authority and convert followers into loyal customers.</p>
+      </div>
+
+      <!-- 4 Content -->
+      <div class="svc svc-4 reveal reveal-delay-1">
+        <div class="svc-glow" style="background:#A78BFA"></div>
+        <div class="svc-num">04</div>
+        <div class="svc-icon ic-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3>Content Marketing</h3>
+        <p>SEO-optimised content that attracts traffic, builds authority and nurtures leads through the buying funnel.</p>
+      </div>
+
+      <!-- 5 Analytics -->
+      <div class="svc svc-5 reveal reveal-delay-2">
+        <div class="svc-glow" style="background:#FBBF24"></div>
+        <div class="svc-num">05</div>
+        <div class="svc-icon ic-yellow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.8" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Analytics &amp; Reporting</h3>
+        <p>Custom dashboards showing what's working, with clear actions to optimise every campaign.</p>
+      </div>
+
+      <!-- 6 Email — full width -->
+      <div class="svc svc-6 reveal">
+        <div class="svc-glow" style="background:#EC4899"></div>
+        <div class="svc-6-left">
+          <div class="svc-badge" style="background:rgba(236,72,153,.12);color:#EC4899">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email Marketing
+          </div>
+          <h3 style="font-size:1.2rem;margin-bottom:.6rem">Automated Email Sequences That Convert</h3>
+          <p>Personalised flows and automation workflows that deliver the right message at exactly the right moment — turning subscribers into buyers on autopilot.</p>
+        </div>
+        <div class="svc-6-right">
+          <div class="stat-pill"><div class="stat-pill-num" style="color:#EC4899">42%</div><div class="stat-pill-label">Avg. open rate</div></div>
+          <div class="stat-pill"><div class="stat-pill-num" style="color:#EC4899">8.6x</div><div class="stat-pill-label">Email ROI</div></div>
+          <div class="stat-pill"><div class="stat-pill-num" style="color:#EC4899">60+</div><div class="stat-pill-label">Campaigns run</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT — REDESIGNED -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-wrap">
+
+      <!-- Left -->
+      <div class="about-left reveal">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">Turning Search <span style="color:var(--accent)">Traffic</span> Into Real Revenue</h2>
+
+        <div class="about-nums">
+          <div class="about-num-box"><div class="about-num-val">5+</div><div class="about-num-label">Years of SEO &amp; Marketing</div></div>
+          <div class="about-num-box"><div class="about-num-val">120+</div><div class="about-num-label">Happy Clients</div></div>
+          <div class="about-num-box"><div class="about-num-val">98%</div><div class="about-num-label">Retention Rate</div></div>
+        </div>
+
+        <p>I'm <strong style="color:var(--text);font-weight:600">Md Abu Bakor Jihad</strong> — a results-obsessed SEO Expert and Digital Marketing Strategist. My approach is data first, creativity second. I analyse, strategise, execute, and iterate until your numbers go in the right direction.</p>
+        <p>Whether you need to dominate local search, scale with paid ads, or build a full-funnel marketing machine, I bring a methodical, transparent process clients can see working — not just trust blindly.</p>
+
+        <div class="chips">
+          <span class="chip"><span class="chip-dot"></span>On-Page SEO</span>
+          <span class="chip"><span class="chip-dot"></span>Technical Audits</span>
+          <span class="chip"><span class="chip-dot"></span>Google Ads</span>
+          <span class="chip"><span class="chip-dot"></span>Meta Ads</span>
+          <span class="chip"><span class="chip-dot"></span>Link Building</span>
+          <span class="chip"><span class="chip-dot"></span>Content Strategy</span>
+          <span class="chip"><span class="chip-dot"></span>E-commerce SEO</span>
+          <span class="chip"><span class="chip-dot"></span>Local SEO</span>
+          <span class="chip"><span class="chip-dot"></span>GA4 &amp; GSC</span>
+          <span class="chip"><span class="chip-dot"></span>CRO</span>
+        </div>
+
+        <a href="#contact" class="btn-primary" style="display:inline-flex">Work With Me <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- Right panel -->
+      <div class="about-panel reveal reveal-delay-2">
+        <div class="panel-title"><span class="panel-title-dot"></span>Skill Proficiency</div>
+        <div class="skill-bars">
+          <div class="skill-row"><label>SEO Strategy <em>95%</em></label><div class="bar-bg"><div class="bar-fill" style="--bar-w:95%"></div></div></div>
+          <div class="skill-row"><label>Google Ads (PPC) <em>90%</em></label><div class="bar-bg"><div class="bar-fill" style="--bar-w:90%"></div></div></div>
+          <div class="skill-row"><label>Social Media Marketing <em>88%</em></label><div class="bar-bg"><div class="bar-fill" style="--bar-w:88%"></div></div></div>
+          <div class="skill-row"><label>Analytics &amp; Data <em>92%</em></label><div class="bar-bg"><div class="bar-fill" style="--bar-w:92%"></div></div></div>
+          <div class="skill-row"><label>Content Strategy <em>85%</em></label><div class="bar-bg"><div class="bar-fill" style="--bar-w:85%"></div></div></div>
+          <div class="skill-row"><label>Link Building <em>87%</em></label><div class="bar-bg"><div class="bar-fill" style="--bar-w:87%"></div></div></div>
+        </div>
+        <div class="panel-tools">
+          <div class="panel-tools-label">Key Tools</div>
+          <div class="tool-badges">
+            <span class="tool-badge">Ahrefs</span><span class="tool-badge">SEMrush</span><span class="tool-badge">GA4</span>
+            <span class="tool-badge">GSC</span><span class="tool-badge">Screaming Frog</span><span class="tool-badge">Surfer SEO</span>
+            <span class="tool-badge">Google Ads</span><span class="tool-badge">Meta Ads</span><span class="tool-badge">Hotjar</span>
+            <span class="tool-badge">Looker Studio</span><span class="tool-badge">HubSpot</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <div class="process-header">
+      <div class="section-label reveal">How I Work</div>
+      <h2 class="section-title reveal reveal-delay-1">My Proven <span style="color:var(--accent)">Process</span></h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-line"></div>
+      <div class="process-step reveal"><div class="step-num">01</div><h3>Discovery &amp; Audit</h3><p>Deep dive into your business, goals, competitors and current digital footprint.</p></div>
+      <div class="process-step reveal reveal-delay-1"><div class="step-num">02</div><h3>Strategy &amp; Plan</h3><p>Custom roadmap with clear KPIs, timelines and channel priorities for your budget.</p></div>
+      <div class="process-step reveal reveal-delay-2"><div class="step-num">03</div><h3>Execute &amp; Optimise</h3><p>Launch campaigns, create content, build links and iterate on real data every week.</p></div>
+      <div class="process-step reveal reveal-delay-3"><div class="step-num">04</div><h3>Report &amp; Scale</h3><p>Transparent monthly reports and a clear plan to double down on what works best.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="section-inner">
+    <div class="results-header">
+      <div>
+        <div class="section-label reveal">Proven Track Record</div>
+        <h2 class="section-title reveal reveal-delay-1">Results That <span style="color:var(--accent)">Speak</span></h2>
+      </div>
+      <p class="section-sub reveal reveal-delay-2">Real numbers from real campaigns — no vanity metrics, just meaningful growth.</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card reveal" style="--rc:var(--accent)"><div class="result-metric" style="color:var(--accent)">340%</div><h4>Organic Traffic Increase</h4><p>E-commerce client grew from 5K to 22K monthly organic visitors in 8 months.</p></div>
+      <div class="result-card reveal reveal-delay-1" style="--rc:var(--accent2)"><div class="result-metric" style="color:var(--accent2)">4.8x</div><h4>Google Ads ROAS</h4><p>Retail brand achieved 4.8x return on ad spend with targeted search &amp; shopping campaigns.</p></div>
+      <div class="result-card reveal reveal-delay-2" style="--rc:var(--accent3)"><div class="result-metric" style="color:var(--accent3)">#1</div><h4>Google Rankings</h4><p>Ranked 15+ high-competition keywords on page 1 within 6 months for a SaaS startup.</p></div>
+      <div class="result-card reveal reveal-delay-3" style="--rc:#A78BFA"><div class="result-metric" style="color:#A78BFA">67%</div><h4>Lead Gen Boost</h4><p>B2B service company increased qualified lead volume by 67% through content + SEO.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="section-inner">
+    <div class="works-header">
+      <div>
+        <div class="section-label reveal">Portfolio</div>
+        <h2 class="section-title reveal reveal-delay-1">My Recent <span style="color:var(--accent)">Works</span></h2>
+      </div>
+      <p class="section-sub reveal reveal-delay-2">A snapshot of campaigns and projects I've delivered — each with measurable outcomes.</p>
+    </div>
+    <div class="works-grid">
+
+      <div class="work-card reveal">
+        <div class="work-thumb" style="--c1:rgba(0,229,160,.2);--c2:rgba(0,144,255,.15)">
+          <div class="work-tag">SEO</div>
+          <div class="work-thumb-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        </div>
+        <div class="work-body">
+          <h3>E-Commerce SEO Overhaul</h3>
+          <p>Full technical audit, on-page restructure and authority link campaign for a Dhaka-based fashion retailer — pushing 20+ keywords to Page 1 in 5 months.</p>
+          <div class="work-metrics">
+            <div class="work-metric">340% <span>Traffic Growth</span></div>
+            <div class="work-metric">22K <span>Monthly Visitors</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal reveal-delay-1">
+        <div class="work-thumb" style="--c1:rgba(0,144,255,.2);--c2:rgba(167,139,250,.15)">
+          <div class="work-tag">Google Ads</div>
+          <div class="work-thumb-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="7,9 10,12 14,9 17,12"/></svg></div>
+        </div>
+        <div class="work-body">
+          <h3>Google Ads ROAS Campaign</h3>
+          <p>Rebuilt a retail brand's underperforming PPC account from scratch — restructured ad groups, rewrote copy and tightened audience targeting to maximise return.</p>
+          <div class="work-metrics">
+            <div class="work-metric">4.8x <span>ROAS</span></div>
+            <div class="work-metric">60% <span>Lower CPA</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal reveal-delay-2">
+        <div class="work-thumb" style="--c1:rgba(255,107,53,.2);--c2:rgba(251,191,36,.15)">
+          <div class="work-tag">Local SEO</div>
+          <div class="work-thumb-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent3)" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        </div>
+        <div class="work-body">
+          <h3>Local SEO for Dhaka Clinic</h3>
+          <p>Google Business Profile optimisation, local citation building and reputation management for a multi-branch dental clinic — driving more walk-ins than paid ads.</p>
+          <div class="work-metrics">
+            <div class="work-metric">#1 <span>Google Maps Pack</span></div>
+            <div class="work-metric">3x <span>Walk-in Increase</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal reveal-delay-3">
+        <div class="work-thumb" style="--c1:rgba(167,139,250,.2);--c2:rgba(236,72,153,.15)">
+          <div class="work-tag">Content + SEO</div>
+          <div class="work-thumb-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        </div>
+        <div class="work-body">
+          <h3>B2B Lead-Gen Content Strategy</h3>
+          <p>Developed a pillar-cluster content strategy for a SaaS startup — 40 articles published over 6 months driving consistent inbound pipeline through organic search.</p>
+          <div class="work-metrics">
+            <div class="work-metric">67% <span>More Leads</span></div>
+            <div class="work-metric">15+ <span>Page 1 Keywords</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-thumb" style="--c1:rgba(236,72,153,.2);--c2:rgba(0,229,160,.1)">
+          <div class="work-tag">Meta Ads</div>
+          <div class="work-thumb-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="1.8" stroke-linecap="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+        </div>
+        <div class="work-body">
+          <h3>Meta Ads Fashion Campaign</h3>
+          <p>Created and managed a full-funnel Meta Ads strategy for StyleBD — prospecting with video ads and retargeting with dynamic product ads across Instagram and Facebook.</p>
+          <div class="work-metrics">
+            <div class="work-metric">3.2x <span>Meta ROAS</span></div>
+            <div class="work-metric">45% <span>CTR Lift</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal reveal-delay-1">
+        <div class="work-thumb" style="--c1:rgba(251,191,36,.2);--c2:rgba(0,144,255,.1)">
+          <div class="work-tag">Analytics</div>
+          <div class="work-thumb-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.8" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        </div>
+        <div class="work-body">
+          <h3>GA4 Migration & Dashboard Build</h3>
+          <p>Migrated a large media company from Universal Analytics to GA4, set up custom events, and built a Looker Studio dashboard used by their entire marketing team weekly.</p>
+          <div class="work-metrics">
+            <div class="work-metric">100% <span>Data Accuracy</span></div>
+            <div class="work-metric">8 <span>Custom Reports</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="section-inner">
+    <div class="tools-header">
+      <div class="section-label reveal">Toolkit</div>
+      <h2 class="section-title reveal reveal-delay-1">Tools I <span style="color:var(--accent)">Master</span></h2>
+    </div>
+    <div class="tools-grid reveal reveal-delay-2">
+      <div class="tool-pill"><span class="tool-dot"></span>Google Analytics 4</div>
+      <div class="tool-pill"><span class="tool-dot"></span>Google Search Console</div>
+      <div class="tool-pill"><span class="tool-dot"></span>Ahrefs</div>
+      <div class="tool-pill"><span class="tool-dot"></span>SEMrush</div>
+      <div class="tool-pill"><span class="tool-dot"></span>Moz Pro</div>
+      <div class="tool-pill"><span class="tool-dot"></span>Screaming Frog</div>
+      <div class="tool-pill"><span class="tool-dot"></span>Google Ads</div>
+      <div class="tool-pill"><span class="tool-dot"></span>Meta Ads Manager</div>
+      <div class="tool-pill"><span class="tool-dot"></span>Mailchimp</div>
+      <div class="tool-pill"><span class="tool-dot"></span>HubSpot</div>
+      <div class="tool-pill"><span class="tool-dot"></span>Hotjar</div>
+      <div class="tool-pill"><span class="tool-dot"></span>Looker Studio</div>
+      <div class="tool-pill"><span class="tool-dot"></span>Surfer SEO</div>
+      <div class="tool-pill"><span class="tool-dot"></span>Notion</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS — HORIZONTAL SCROLL -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="testi-header">
+      <div class="section-label reveal">Client Love</div>
+      <h2 class="section-title reveal reveal-delay-1">What Clients <span style="color:var(--accent)">Say</span></h2>
+    </div>
+  </div>
+  <div class="testi-outer reveal">
+    <div class="fade-l"></div>
+    <div class="fade-r"></div>
+    <div class="testi-track" id="testiTrack">
+
+      <!-- Original set -->
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="stars"><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+        <p class="testi-text">Abu Bakor completely transformed our online presence. We went from page 3 to ranking #1 for our most competitive keywords in under 6 months. The ROI has been incredible.</p>
+        <div class="testi-author"><div class="author-av" style="background:linear-gradient(135deg,rgba(0,229,160,.3),rgba(0,144,255,.3))">RK</div><div><div class="author-name">Rafiq Karim</div><div class="author-role">CEO, TechBD Solutions</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="stars"><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+        <p class="testi-text">Our Google Ads campaigns went from losing money to generating a 5x return. His analytical approach and transparency in reporting is unmatched. Highly recommended!</p>
+        <div class="testi-author"><div class="author-av" style="background:linear-gradient(135deg,rgba(0,144,255,.3),rgba(167,139,250,.3))">SA</div><div><div class="author-name">Sultana Akter</div><div class="author-role">Marketing Director, ShopNow BD</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="stars"><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+        <p class="testi-text">Working with Abu Bakor was a game-changer. He educates you on the process, explains every decision, and our organic traffic tripled in just 5 months!</p>
+        <div class="testi-author"><div class="author-av" style="background:linear-gradient(135deg,rgba(255,107,53,.3),rgba(251,191,36,.3))">MH</div><div><div class="author-name">Mehedi Hasan</div><div class="author-role">Founder, GreenHouse Foods</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="stars"><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+        <p class="testi-text">Exceptional attention to detail in every campaign. Within 3 months our local SEO was bringing more walk-in customers than paid ads ever did. 10/10 experience.</p>
+        <div class="testi-author"><div class="author-av" style="background:linear-gradient(135deg,rgba(167,139,250,.3),rgba(236,72,153,.3))">TI</div><div><div class="author-name">Tanvir Islam</div><div class="author-role">Owner, Dhaka Dental Clinic</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="stars"><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+        <p class="testi-text">I hired Abu Bakor after two bad experiences with agencies. The difference was night and day — realistic expectations set upfront, and exceeded every single month.</p>
+        <div class="testi-author"><div class="author-av" style="background:linear-gradient(135deg,rgba(0,229,160,.25),rgba(255,107,53,.25))">NR</div><div><div class="author-name">Nadia Rahman</div><div class="author-role">Co-founder, StyleBD</div></div></div>
+      </div>
+
+      <!-- Duplicate set for seamless infinite loop -->
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="stars"><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+        <p class="testi-text">Abu Bakor completely transformed our online presence. We went from page 3 to ranking #1 for our most competitive keywords in under 6 months. The ROI has been incredible.</p>
+        <div class="testi-author"><div class="author-av" style="background:linear-gradient(135deg,rgba(0,229,160,.3),rgba(0,144,255,.3))">RK</div><div><div class="author-name">Rafiq Karim</div><div class="author-role">CEO, TechBD Solutions</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="stars"><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+        <p class="testi-text">Our Google Ads campaigns went from losing money to generating a 5x return. His analytical approach and transparency in reporting is unmatched. Highly recommended!</p>
+        <div class="testi-author"><div class="author-av" style="background:linear-gradient(135deg,rgba(0,144,255,.3),rgba(167,139,250,.3))">SA</div><div><div class="author-name">Sultana Akter</div><div class="author-role">Marketing Director, ShopNow BD</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="stars"><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+        <p class="testi-text">Working with Abu Bakor was a game-changer. He educates you on the process, explains every decision, and our organic traffic tripled in just 5 months!</p>
+        <div class="testi-author"><div class="author-av" style="background:linear-gradient(135deg,rgba(255,107,53,.3),rgba(251,191,36,.3))">MH</div><div><div class="author-name">Mehedi Hasan</div><div class="author-role">Founder, GreenHouse Foods</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="stars"><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+        <p class="testi-text">Exceptional attention to detail in every campaign. Within 3 months our local SEO was bringing more walk-in customers than paid ads ever did. 10/10 experience.</p>
+        <div class="testi-author"><div class="author-av" style="background:linear-gradient(135deg,rgba(167,139,250,.3),rgba(236,72,153,.3))">TI</div><div><div class="author-name">Tanvir Islam</div><div class="author-role">Owner, Dhaka Dental Clinic</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="stars"><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+        <p class="testi-text">I hired Abu Bakor after two bad experiences with agencies. The difference was night and day — realistic expectations set upfront, and exceeded every single month.</p>
+        <div class="testi-author"><div class="author-av" style="background:linear-gradient(135deg,rgba(0,229,160,.25),rgba(255,107,53,.25))">NR</div><div><div class="author-name">Nadia Rahman</div><div class="author-role">Co-founder, StyleBD</div></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="section-inner">
+    <div class="cta-inner reveal">
+      <h2 class="section-title">Ready to Dominate <span style="color:var(--accent)">Search?</span></h2>
+      <p>Let's build a custom strategy that puts your business at the top of Google and keeps it there. Free consultation, no fluff.</p>
+      <div class="cta-btns">
+        <a href="#contact" class="btn-primary">Start Free Consultation →</a>
+        <a href="/cdn-cgi/l/email-protection#1776756275767c78657d7e7f767357707a767e7b3974787a" class="btn-secondary">Send an Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="section-label">Get In Touch</div>
+        <h2>Let's Grow Your <span style="color:var(--accent)">Business</span></h2>
+        <p>Whether you have a project in mind, need a quick audit, or just want to talk digital marketing — my inbox is always open.</p>
+        <div class="contact-links">
+          <a href="/cdn-cgi/l/email-protection#2a4b485f484b4145584043424b4e6a4d474b434604494547" class="contact-link">
+            <div class="link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <span class="__cf_email__" data-cfemail="cfaeadbaadaea4a0bda5a6a7aeab8fa8a2aea6a3e1aca0a2">[email&#160;protected]</span>
+          </a>
+          <a href="https://wa.me/8801700000000" class="contact-link">
+            <div class="link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            WhatsApp: +880 170 000 0000
+          </a>
+          <a href="https://linkedin.com/in/abubakorjihad" class="contact-link">
+            <div class="link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+            linkedin.com/in/abubakorjihad
+          </a>
+          <a href="#" class="contact-link">
+            <div class="link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            Dhaka, Bangladesh
+          </a>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <form class="contact-form" onsubmit="handleSubmit(event)" id="contactForm">
+          <div class="form-row">
+            <div class="form-group"><label>Your Name</label><input type="text" id="fname" placeholder="John Doe" required></div>
+            <div class="form-group"><label>Email Address</label><input type="email" id="femail" placeholder="john@company.com" required></div>
+          </div>
+          <div class="form-group">
+            <label>Service Needed</label>
+            <select id="fservice" style="background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:12px 16px;font-family:var(--font-body);font-size:.9rem;outline:none;width:100%;cursor:pointer">
+              <option style="background:#0D1220">Select a service...</option>
+              <option style="background:#0D1220">SEO Optimisation</option>
+              <option style="background:#0D1220">Google &amp; Meta Ads</option>
+              <option style="background:#0D1220">Social Media Marketing</option>
+              <option style="background:#0D1220">Content Marketing</option>
+              <option style="background:#0D1220">Full Digital Marketing</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Your Message</label><textarea id="fmessage" placeholder="Tell me about your project, goals, or challenges..." required></textarea></div>
+          <button type="submit" class="form-submit">Send Message →</button>
+          <div id="formSuccess" style="display:none;color:var(--accent);font-size:.9rem;margin-top:8px;font-weight:500">✓ Opening your email app to send the message...</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">ABJ<span>.</span></div>
+      <p style="margin-top:6px">© 2025 Md Abu Bakor Jihad. All rights reserved.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#services">Services</a><a href="#about">About</a><a href="#results">Results</a><a href="#contact">Contact</a>
+    </div>
+    <div class="social-links">
+      <a href="#" class="social-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="#" class="social-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      <a href="#" class="social-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<div class="designer-credit">
+  <div class="designer-credit-inner">
+    <span class="designer-credit-text">Designed &amp; Developed by</span>
+    <a href="https://mrcodify.vercel.app/" target="_blank" rel="noopener" class="designer-credit-link" title="Visit MrCodify — Click to open">
+      <img src="https://i.postimg.cc/ZqSgK7fX/Untitled-design-(11).jpg" alt="MrCodify Logo" class="designer-credit-logo">
+      <span>MrCodify</span>
+    </a>
+    <span class="credit-click-hint">↑ click to visit</span>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── Cursor ──────────────────────────────────────────────
+  const cur = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0, cursorVisible = false;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cur.style.left = mx + 'px';
+    cur.style.top  = my + 'px';
+    if (!cursorVisible) {
+      cursorVisible = true;
+      cur.style.opacity = '1';
+      ring.style.opacity = '1';
+      rx = mx; ry = my;
+    }
+  });
+
+  document.addEventListener('mouseleave', () => {
+    cur.style.opacity = '0';
+    ring.style.opacity = '0';
+    cursorVisible = false;
+  });
+
+  document.addEventListener('mouseenter', () => {
+    if (cursorVisible) {
+      cur.style.opacity = '1';
+      ring.style.opacity = '1';
+    }
+  });
+
+  (function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(animateRing);
+  })();
+
+  document.querySelectorAll('a, button, .svc, .tool-pill, .contact-link').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cur.style.width = '20px'; cur.style.height = '20px';
+      ring.style.width = '52px'; ring.style.height = '52px';
+      ring.style.borderColor = 'rgba(0,229,160,0.8)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cur.style.width = '12px'; cur.style.height = '12px';
+      ring.style.width = '36px'; ring.style.height = '36px';
+      ring.style.borderColor = 'rgba(0,229,160,0.5)';
+    });
+  });
+
+  // ── Scroll progress + back-to-top ───────────────────────
+  window.addEventListener('scroll', () => {
+    const t = window.scrollY;
+    const d = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollBar').style.width = (t / d * 100) + '%';
+    document.getElementById('backTop').classList.toggle('show', t > 400);
+    document.getElementById('navbar').style.boxShadow = t > 50 ? '0 4px 30px rgba(0,0,0,.5)' : '';
+  });
+
+  // ── Hamburger ───────────────────────────────────────────
+  const ham = document.getElementById('hamburger');
+  const nl  = document.getElementById('navLinks');
+  ham.addEventListener('click', () => {
+    nl.classList.toggle('open');
+    const spans = ham.querySelectorAll('span');
+    if (nl.classList.contains('open')) {
+      spans[0].style.cssText = 'transform:rotate(45deg) translate(5px,5px)';
+      spans[1].style.cssText = 'opacity:0';
+      spans[2].style.cssText = 'transform:rotate(-45deg) translate(5px,-5px)';
+    } else {
+      spans.forEach(s => s.style.cssText = '');
+    }
+  });
+  nl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nl.classList.remove('open');
+    ham.querySelectorAll('span').forEach(s => s.style.cssText = '');
+  }));
+
+  // ── Reveal on scroll ────────────────────────────────────
+  document.body.classList.add('js-loaded');
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // ── Skill bars ──────────────────────────────────────────
+  const skillObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.bar-fill').forEach((bar, i) => {
+          setTimeout(() => bar.classList.add('go'), i * 150);
+        });
+        skillObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.about-panel').forEach(el => skillObs.observe(el));
+
+  // ── Contact form ────────────────────────────────────────
+  function handleSubmit(e) {
+    e.preventDefault();
+    const name    = document.getElementById('fname').value.trim();
+    const email   = document.getElementById('femail').value.trim();
+    const service = document.getElementById('fservice').value;
+    const message = document.getElementById('fmessage').value.trim();
+    const to      = 'abubakorjihad@gmail.com';
+    const subject = encodeURIComponent('New Enquiry: ' + service + ' — from ' + name);
+    const body    = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nService: ' + service + '\n\nMessage:\n' + message);
+    const btn     = e.target.querySelector('.form-submit');
+    btn.textContent = 'Opening Email…';
+    btn.style.opacity = '.7';
+    window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
+    document.getElementById('formSuccess').style.display = 'block';
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.opacity = '';
+      document.getElementById('formSuccess').style.display = 'none';
+      e.target.reset();
+    }, 4000);
+  }
+
+  // ── Count-up numbers ────────────────────────────────────
+  function countUp(el, target, suffix, dur) {
+    if (!el) return;
+    dur = dur || 2000;
+    let current = 0;
+    const step = target / 60;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        el.innerHTML = target + '<span class="plus">' + suffix + '</span>';
+        clearInterval(timer);
+      } else {
+        el.innerHTML = Math.floor(current) + '<span class="plus">' + suffix + '</span>';
+      }
+    }, dur / 60);
+  }
+
+  const countObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        countUp(document.getElementById('s1'),   5,   '+');
+        countUp(document.getElementById('s2'), 120,   '+');
+        countUp(document.getElementById('s3'),  98,   '%');
+        countObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) countObs.observe(heroStats);
+
+</script>
+</body>
+</html>
